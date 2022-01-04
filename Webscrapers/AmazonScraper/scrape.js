@@ -8,8 +8,11 @@ const app = express();
 
 const connectToMongod = async () => {
   await mongoose.connect(
-    "mongodb+srv://sohila2001:Sohila2001@cluster0.wvl0d.mongodb.net/Iphone?retryWrites=true&w=majority",
-    { useNewUrlParser: true }
+    "mongodb+srv://sohila2001:sohila2001@cluster0.wvl0d.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      socketTimeoutMS: 0,
+    }
   );
   console.log("connected to MongoDb");
 };
