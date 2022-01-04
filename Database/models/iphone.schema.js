@@ -1,18 +1,11 @@
 import mongoose from "mongoose";
-const Schema = mongoose.Schema;
 
-const IphoneSchema = new Schema({
-  name: {
-    type: String,
-  },
+const iphoneSchema = new mongoose.Schema({
+  name: String,
 
-  price: {
-    type: String,
-  },
+  price: String,
 
-  link: {
-    type: String,
-  },
+  link: String,
 });
 
-module.exports = Iphone = mongoose.model("iphone", IphoneSchema);
+module.exports = mongoose.model("iphone", iphoneSchema);
