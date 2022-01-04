@@ -7,13 +7,24 @@ const PORT = 3000;
 const app = express();
 
 const connectToMongod = async () => {
-  await mongoose.connect(
-    "mongodb+srv://sohila2001:sohila2001@cluster0.wvl0d.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      socketTimeoutMS: 0,
-    }
-  );
+  setTimeout(function () {
+    mongoose.set("bufferCommands", false);
+    mongoose
+      .connect(
+        "mongodb+srv://amro:amro1234@cluster0.z9mix.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+        {
+          useNewUrlParser: true,
+          socketTimeoutMS: 0,
+        }
+      )
+      .then(() => {
+        console.log("connected successfully");
+      })
+      .catch((err) => {
+        console.error("Something is wrong"), err;
+      });
+  }, 0);
+
   console.log("connected to MongoDb");
 };
 
@@ -57,11 +68,6 @@ const iLoveFakhry = async () => {
           price,
           link,
         });
-        iphone.create({
-          title,
-          price,
-          link,
-        });
       }
     });
   }
@@ -72,7 +78,10 @@ const iLoveFakhry = async () => {
 app.get("/scrape", async (req, res) => {
   await connectToMongod();
   const data = await iLoveFakhry();
-  res.send(data);
+  await iphone.insertMany(data).catch((err) => {
+    console.error(err);
+  });
+  res.json(data);
 });
 
 app.listen(PORT, () => console.log(`Server Started on PORT ${PORT}`));
