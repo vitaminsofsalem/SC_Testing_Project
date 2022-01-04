@@ -1,20 +1,18 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const IphoneSchema = new Schema({
-    price:{
-        type: Int16Array,
-        required: true
-    },
-    name:{
-        type: String,
-        required: true
-    },
-    websiteName : { 
-        type: String, 
-        required: true
-    },
-   
+  name: {
+    type: String,
+  },
+
+  price: {
+    type: String,
+  },
+
+  link: {
+    type: String,
+  },
 });
 
-module.exports = Iphone = mongoose.model('iphone', IphoneSchema);
+module.exports = Iphone = mongoose.model("iphone", IphoneSchema);
