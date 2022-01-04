@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const iphoneSchema = new mongoose.Schema({
-  name: String,
+  title: String,
 
   price: String,
 
