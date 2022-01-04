@@ -1,11 +1,12 @@
 import cheerio from "cheerio";
 import express from "express";
 import axios from "axios";
-import iphoneSchema from "../../Database/models/iphone.schema";
+import mongoose from "mongoose";
+import iphone from "../../Database/models/iphone.schema.js";
 const PORT = 3000;
 const app = express();
 
-connectToMongod = async () => {
+const connectToMongod = async () => {
   await mongoose.connect(
     "mongodb+srv://sohila2001:Sohila2001@cluster0.wvl0d.mongodb.net/Iphone?retryWrites=true&w=majority",
     { useNewUrlParser: true }
@@ -53,7 +54,7 @@ const iLoveFakhry = async () => {
           price,
           link,
         });
-        iphoneSchema.create({
+        iphone.create({
           title,
           price,
           link,

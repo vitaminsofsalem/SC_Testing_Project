@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
+const { Schema } = mongoose;
 
-const iphoneSchema = new mongoose.Schema({
+const iphoneSchema = Schema({
   title: String,
 
   price: String,
@@ -8,4 +9,5 @@ const iphoneSchema = new mongoose.Schema({
   link: String,
 });
 
-module.exports = mongoose.model("iphone", iphoneSchema);
+const iphone = mongoose.model("iphone", iphoneSchema);
+export default iphone;
