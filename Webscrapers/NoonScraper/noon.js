@@ -2,7 +2,7 @@
 import cheerio from "cheerio";
 import express from "express";
 import axios from "axios";
-import iphoneSchema from "./models/iphone.schema";
+import iphone from "../../Database/models/iphone.schema.js";
 
 //connect to DB
 const connectToMongod = async () => {
@@ -37,10 +37,10 @@ const data = [];
 for(var i =0; i <=4; i++){
     const res = await axios( `https://www.noon.com/egypt-en/search/?page=${i}&q=iphone`);  //traverse through noon webpages
     const html = res.data;
-    const $ = cheerio.load(html);
+    const $ = cheerio.load(html); //load html in $
 
     $('.productContainer').each((i, el) => {  
-        const title = $(el)
+        const title = $(el)   //find title of the iphone
         .find('.sc-e3js0d-9 gCnNfT')
         .end()
         .find('.sc-e3js0d-10 fyFmgb')
@@ -48,27 +48,27 @@ for(var i =0; i <=4; i++){
         .find('span')
         .text()
             
-        const price = $(el)
+        const price = $(el) //find price of each iphone
         .find('.currency')
         .end()
         .find('strong')
         .html()
 
-        const link = 'https://www.noon.com' + $(el)
+        const link = 'https://www.noon.com' + $(el)  //find el link of this iphone
         .find('a')
         .attr('href')
         
-        data.push({
+        data.push({   ///push the 3 attributes as an object 
             title,
             price,
             link,
           });
 
-        iphoneSchema.create({
-            title,
-            price,
-            link,
-        })
+        // iphone.create({   //save in the schema
+        //     title,
+        //     price,
+        //     link,
+        // })
 
         // console.log(title, '\n',"PRICE : ", price, '\n', /*link, '\n'*/)
 
@@ -77,9 +77,10 @@ for(var i =0; i <=4; i++){
 }
 }
 
-app.get("/scrape", async (req, res) => {
+app.get("/noon", async (req, res) => {
+  await connectToMongod();
   const data = await getNoon();
-  await iphone.insertMany(data).catch((err) => {
+  await iphone.insertMany(data).catch((err) => {   //insert our array in the db
     console.error(err);
   });
   res.json(data);
