@@ -19,7 +19,7 @@ const iLoveFakhry = async () => {
       ).catch((err) => console.error(err))
     );
   }
-  // allows us to parallel compute the requests ( 4s * 4 reqs = 16s VS 4s total time)
+  // allows us to parallel compute the requests ( 4s * 4 req's = 16s VS 4s total time)
   const results = await Promise.all(httpRequests);
 
   // give empty array to avoid error with forEach loop
