@@ -40,12 +40,8 @@ for(var i =0; i <=4; i++){
     const $ = cheerio.load(html); //load html in $
 
     $('.productContainer').each((i, el) => {  
-        const title = $(el)   //find title of the iphone
-        .find('.sc-e3js0d-9 gCnNfT')
-        .end()
-        .find('.sc-e3js0d-10 fyFmgb')
-        .end()
-        .find('span')
+        const title = $(el)  //find title of the mobile
+        .find('span > span')
         .text()
             
         const price = $(el) //find price of each iphone
@@ -58,14 +54,12 @@ for(var i =0; i <=4; i++){
         .find('a')
         .attr('href')
         
-        data.push({   ///push the 3 attributes as an object 
+        data.push({   ///object
             title,
             price,
             link,
           });
 
-        // console.log(title, '\n',"PRICE : ", price, '\n', link, '\n')
-        // console.log(data);
      });
      return data;
 }
