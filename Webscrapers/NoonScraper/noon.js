@@ -35,7 +35,7 @@ const getNoon = async () => {
 const data = [];
 
 for(var i =0; i <=4; i++){
-    const res = await axios( `https://www.noon.com/egypt-en/search/?page=${i}&q=iphone`);  //traverse through noon webpages
+    const res = await axios( `https://www.noon.com/egypt-en/search/?page=${i}&q=iphone`);  //traverse through noon 4 webpages
     const html = res.data;
     const $ = cheerio.load(html); //load html in $
 
@@ -64,14 +64,8 @@ for(var i =0; i <=4; i++){
             link,
           });
 
-        // iphone.create({   //save in the schema
-        //     title,
-        //     price,
-        //     link,
-        // })
-
-        // console.log(title, '\n',"PRICE : ", price, '\n', /*link, '\n'*/)
-
+        // console.log(title, '\n',"PRICE : ", price, '\n', link, '\n')
+        // console.log(data);
      });
      return data;
 }
