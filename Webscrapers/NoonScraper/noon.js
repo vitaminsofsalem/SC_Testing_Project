@@ -1,77 +1,66 @@
+process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
 
-import cheerio from "cheerio";
-import express from "express";
-import axios from "axios";
-import iphone from "../../Database/models/iphone.schema.js";
-
-//connect to DB
-const connectToMongod = async () => {
-  setTimeout(function () {
-    mongoose.set("bufferCommands", false);
-    mongoose
-      .connect(
-        "mongodb+srv://amro:amro1234@cluster0.z9mix.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-        {
-          useNewUrlParser: true,
-          socketTimeoutMS: 0,
-        }
-      )
-      .then(() => {
-        console.log("connected successfully");
-      })
-      .catch((err) => {
-        console.error("Something is wrong"), err;
-      });
-  }, 0);
-
-  console.log("connected to MongoDb");
-};
-
+const cheerio = require("cheerio");
+const express = require("express");
+const axios = require("axios");
+const { mongoClient } = require("../../Database/db.js");
 const PORT = 3000;
 const app = express();
 
-const getNoon = async () => {
+const noonScraper = async () => {
+  const dataAggregate = [];
+  const httpRequests = [];
 
-const data = [];
+  for (var i = 1; i <= 4; i++) {
+    httpRequests.push(
+      axios(`https://www.noon.com/egypt-en/search/?page=${i}&q=iphone`).catch(
+        (err) => console.error(err)
+      )
+    );
+  }
 
-for(var i =0; i <=4; i++){
-    const res = await axios( `https://www.noon.com/egypt-en/search/?page=${i}&q=iphone`);  //traverse through noon 4 webpages
-    const html = res.data;
-    const $ = cheerio.load(html); //load html in $
+  const results = await Promise.all(httpRequests);
 
-    $('.productContainer').each((i, el) => {  
-        const title = $(el)  //find title of the mobile
-        .find('span > span')
-        .text()
-            
-        const price = $(el) //find price of each iphone
-        .find('.currency')
-        .end()
-        .find('strong')
-        .html()
+  (results || []).forEach((httpResponse) => {
+    const html = httpResponse.data;
+    const $ = cheerio.load(html);
 
-        const link = 'https://www.noon.com' + $(el)  //find el link of this iphone
-        .find('a')
-        .attr('href')
-        
-        data.push({   ///object
-            title,
-            price,
-            link,
-          });
+    $(".productContainer").each((i, el) => {
+      // Find title of the mobile
+      const title = $(el).find("span > span").text();
 
-     });
-     return data;
-}
-}
+      // Find price of each iphone
+      const price = $(el).find(".currency").end().find("strong").html();
 
-app.get("/noon", async (req, res) => {
-  await connectToMongod();
-  const data = await getNoon();
-  await iphone.insertMany(data).catch((err) => {   //insert our array in the db
-    console.error(err);
+      // Find el link of this iphone
+      const link = "https://www.noon.com" + $(el).find("a").attr("href");
+
+      // Pushing data to array
+      dataAggregate.push({
+        title,
+        price,
+        link,
+      });
+    });
   });
+  return dataAggregate;
+};
+
+app.get("/noonscraper", async (req, res) => {
+  const data = await noonScraper();
+
+  if (data && data.length) {
+    const db = await mongoClient("iphones");
+    if (!db) {
+      return res
+        .status(500)
+        .json({ message: "Unable to establish database connection" });
+    }
+    await db.insertMany(data).catch((err) => {
+      console.error(err);
+    });
+  }
   res.json(data);
 });
-  
-  app.listen(PORT, () => console.log(`Server Started on PORT ${PORT}`));
+
+app.listen(PORT, () => console.log(`Server Started on PORT ${PORT}`));
