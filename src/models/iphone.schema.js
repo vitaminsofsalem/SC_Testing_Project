@@ -1,20 +1,20 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const IphoneSchema = new Schema({
+const iphoneSchema = new Schema({
     price:{
-        type: Int16Array,
-        required: true
-    },
-    name:{
         type: String,
-        required: true
+        required: false
     },
-    websiteName : { 
+    title:{
+        type: String,
+        required: false
+    },
+    link : { 
         type: String, 
-        required: true
+        required: false
     },
    
 });
 
-module.exports = Iphone = mongoose.model('iphone', IphoneSchema);
+module.exports = mongoose.model('iphone', iphoneSchema);
