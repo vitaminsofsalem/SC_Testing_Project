@@ -64,7 +64,7 @@ const iLoveFakhry = async () => {
   return dataAggregate;
 };
 
-app.get("/scrape", async (req, res) => {
+app.get("/amazonscraper", async (req, res) => {
   const data = await iLoveFakhry();
 
   // check truthy value of data and that it's not returned array isn't empty.
