@@ -8,10 +8,11 @@ const PORT = 3000;
 const app = express();
 
 const noonScraper = async () => {
+   // arrays for saving requests & data
   const dataAggregate = [];
   const httpRequests = [];
 
-  for (var i = 1; i <= 4; i++) {
+  for (var i = 1; i <= 4; i++) {  //loop around first 4 pages of search result
     httpRequests.push(
       axios(`https://www.noon.com/egypt-en/search/?page=${i}&q=iphone`).catch(
         (err) => console.error(err)
@@ -19,9 +20,9 @@ const noonScraper = async () => {
     );
   }
 
-  const results = await Promise.all(httpRequests);
+  const results = await Promise.all(httpRequests);  //parallel compute the requests
 
-  (results || []).forEach((httpResponse) => {
+  (results || []).forEach((httpResponse) => {    // give empty array to avoid error with forEach loop
     const html = httpResponse.data;
     const $ = cheerio.load(html);
 
@@ -35,7 +36,7 @@ const noonScraper = async () => {
       // Find el link of this iphone
       const link = "https://www.noon.com" + $(el).find("a").attr("href");
 
-      // Pushing data to array
+      // Pushing object to dataAggregate array   
       dataAggregate.push({
         title,
         price,
@@ -48,7 +49,8 @@ const noonScraper = async () => {
 
 app.get("/noonscraper", async (req, res) => {
   const data = await noonScraper();
-
+  
+  // check truthy value of data and that it's not returned array isn't empty.
   if (data && data.length) {
     const db = await mongoClient("iphones");
     if (!db) {
