@@ -1,18 +1,12 @@
-process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
-
 const cheerio = require("cheerio");
-const express = require("express");
 const axios = require("axios");
-const { mongoClient } = require("../../Database/db.js");
-const PORT = 3000;
-const app = express();
 
-const iLoveFakhry = async () => {
+const amazonScraper = async () => {
   // arrays for saving requests & data
   const dataAggregate = [];
   const httpRequests = [];
 
-  for (var i = 1; i <= 4; i++) {
+  for (let i = 1; i <= 4; i++) {
     httpRequests.push(
       axios(
         `https://www.amazon.com/s?k=iphone&page=${i}&qid=1641303333&sprefix=iphone%2Caps%2C262&ref=sr_pg_${i}`
@@ -64,22 +58,4 @@ const iLoveFakhry = async () => {
   return dataAggregate;
 };
 
-app.get("/amazonscraper", async (req, res) => {
-  const data = await iLoveFakhry();
-
-  // check truthy value of data and that it's not returned array isn't empty.
-  if (data && data.length) {
-    const db = await mongoClient("iphones");
-    if (!db) {
-      return res
-        .status(500)
-        .json({ message: "Unable to establish database connection" });
-    }
-    await db.insertMany(data).catch((err) => {
-      console.error(err);
-    });
-  }
-  res.json(data);
-});
-
-app.listen(PORT, () => console.log(`Server Started on PORT ${PORT}`));
+module.exports = amazonScraper;
