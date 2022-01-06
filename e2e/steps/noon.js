@@ -18,7 +18,9 @@ Then("I get response code {int} and valid array of items", function (code) {
   assert.equal(response.status, 200);
   assert(Array.isArray(data));
   assert(data.length >= 1);
-  assert.equal(typeof data[0].title, "string");
-  assert.equal(typeof data[0].price, "string");
-  assert.equal(typeof data[0].link, "string");
+  for (const item of data) {
+    assert.equal(typeof item.title, "string");
+    assert.equal(typeof item.price, "string");
+    assert.equal(typeof item.link, "string");
+  }
 });
