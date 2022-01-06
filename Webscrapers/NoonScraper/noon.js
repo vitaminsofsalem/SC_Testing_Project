@@ -66,3 +66,5 @@ app.get("/noonscraper", async (req, res) => {
 });
 
 app.listen(PORT, () => console.log(`Server Started on PORT ${PORT}`));
+
+module.exports = {getNoon} ;
