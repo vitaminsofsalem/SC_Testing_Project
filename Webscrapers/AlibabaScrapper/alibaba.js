@@ -1,9 +1,14 @@
 const cheerio = require("cheerio");
 const axios = require("axios");
+const ScraperResults = require("../ScraperResults");
 
+/**
+ * Scrapes Alibaba Websites then returns the scraping results
+ * @returns {ScraperResults} scraped data
+ */
 const alibabaScrapper = async () => {
   // arrays for saving requests & data
-  const dataAggregate = [];
+  const dataAggregate = new ScraperResults();
   const httpRequests = [];
 
   for (let i = 1; i <= 4; i++) {
@@ -24,16 +29,12 @@ const alibabaScrapper = async () => {
     $(".list-no-v2-main").each((i, el) => {
       const title = $(el).find(".elements-title-normal__outter").attr("title");
 
-      const price = $(el).find(".elements-offer-price-normal__price").html();
+      const price = $(el).find(".elements-offer-price-normal__price").text();
 
       const link = $(el).find("a").attr("href");
 
-      // push object to dataAggregate array
-      dataAggregate.push({
-        title,
-        price,
-        link,
-      });
+      // push object to dataAggregate
+      dataAggregate.push(title, price, link);
     });
   });
 

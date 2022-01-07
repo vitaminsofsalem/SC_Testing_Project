@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index",
+    "start": "nodemon index",
     "test": "jest",
     "test:e2e": "cucumber-js -f json:e2e/report/cucumber_report.json e2e/features/ -r e2e/steps/ --parallel 3 && node ./e2e/report/reporter.js"
   },
