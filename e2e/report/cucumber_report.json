@@ -1,5 +1,127 @@
 [
   {
+    "description": "    In order to provide proper representation of iPhone prices\n    As a developer\n    I want to make sure scraping of alibaba.com is done properly",
+    "elements": [
+      {
+        "description": "",
+        "id": "alibaba-service;scrape-iphones-from-alibaba.com",
+        "keyword": "Scenario Outline",
+        "line": 6,
+        "name": "scrape iphones from alibaba.com",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "A request",
+            "match": {
+              "location": "e2e\\steps\\steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "I send a GET request to /alibabascraper",
+            "match": {
+              "location": "e2e\\steps\\steps.js:21"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2840000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "I get response code 200 and valid array of items",
+            "match": {
+              "location": "e2e\\steps\\steps.js:27"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "alibaba-service",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Alibaba service",
+    "tags": [],
+    "uri": "e2e\\features\\alibaba.feature"
+  },
+  {
+    "description": "    In order to provide proper representation of iPhone prices\n    As a developer\n    I want to make sure scraping of amazon.com is done properly",
+    "elements": [
+      {
+        "description": "",
+        "id": "amazon-service;scrape-iphones-from-amazon.com",
+        "keyword": "Scenario Outline",
+        "line": 6,
+        "name": "scrape iphones from amazon.com",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "A request",
+            "match": {
+              "location": "e2e\\steps\\steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "I send a GET request to /amazonscraper",
+            "match": {
+              "location": "e2e\\steps\\steps.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1671000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "I get response code 200 and valid array of items",
+            "match": {
+              "location": "e2e\\steps\\steps.js:27"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "amazon-service",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Amazon service",
+    "tags": [],
+    "uri": "e2e\\features\\amazon.feature"
+  },
+  {
     "description": "    In order to provide proper representation of iPhone prices\n    As a developer\n    I want to make sure scraping of noon.com is done properly",
     "elements": [
       {
@@ -15,7 +137,7 @@
             "line": 7,
             "name": "A request",
             "match": {
-              "location": "e2e\\steps\\noon.js:5"
+              "location": "e2e\\steps\\steps.js:5"
             },
             "result": {
               "status": "passed",
@@ -28,11 +150,11 @@
             "line": 8,
             "name": "I send a GET request to /noonscraper",
             "match": {
-              "location": "e2e\\steps\\noon.js:9"
+              "location": "e2e\\steps\\steps.js:9"
             },
             "result": {
               "status": "passed",
-              "duration": 3614000000
+              "duration": 3116000000
             }
           },
           {
@@ -41,7 +163,7 @@
             "line": 9,
             "name": "I get response code 200 and valid array of items",
             "match": {
-              "location": "e2e\\steps\\noon.js:15"
+              "location": "e2e\\steps\\steps.js:27"
             },
             "result": {
               "status": "passed",

@@ -6,11 +6,10 @@ const { mongoClient } = require("./Database/db");
 const amazonScraper = require("./Webscrapers/AmazonScraper/amazon");
 const noonScraper = require("./Webscrapers/NoonScraper/noon");
 const alibabaScraper = require("./Webscrapers/AlibabaScrapper/alibaba");
-const ScraperResults = require("./Webscrapers/ScraperResults");
 
 app.get("/amazonscraper", async (req, res) => {
   const data = await amazonScraper();
-  res.json(data.resultSet);
+  res.json(data);
 });
 
 app.get("/alibabascraper", async (req, res) => {
@@ -18,12 +17,12 @@ app.get("/alibabascraper", async (req, res) => {
   const data = await alibabaScraper();
 
   if (query) res.json(data.filterByTitle(query).resultSet);
-  else res.json(data.resultSet);
+  else res.json(data);
 });
 
 app.get("/noonscraper", async (req, res) => {
   const data = await noonScraper();
-  res.json(data.resultSet);
+  res.json(data);
 });
 
 app.get("/all", async (req, res) => {});
