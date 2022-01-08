@@ -1,8 +1,8 @@
 const cheerio = require("cheerio");
 const axiosRequests = require("./axiosRequests");
 
-/*
- * Scrape iphone data from Noon with a depth of 4 pages for scraping.
+/**
+ * Scrape iphone data from Alibaba with a depth of 4 pages for scraping.
  * function doesn't take any params
  * @return  title, price, link of listed iphones
  */

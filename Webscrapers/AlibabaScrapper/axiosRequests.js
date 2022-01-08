@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-/*
+/**
  * Sends a HTTP GET request to the Amazon webpages using axios
  * Function takes no parameters
  * @return Array of request promises for each page we're scraping ( 1 -> 4 )
