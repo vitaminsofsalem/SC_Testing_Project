@@ -8,18 +8,37 @@ const noonScraper = require("./Webscrapers/NoonScraper/noon");
 const alibabaScraper = require("./Webscrapers/AlibabaScrapper/alibaba");
 
 app.get("/amazonscraper", async (req, res) => {
-  const data = await amazonScraper();
-  res.json(data);
+  try {
+    const data = await amazonScraper();
+    res.json(data);
+  } catch (e) {
+    res.send("sorry, an error has occured");
+  }
 });
 
 app.get("/alibabascraper", async (req, res) => {
-  const data = await alibabaScraper();
-  res.json(data);
+  try {
+    const data = await alibabaScraper();
+    const query = req.query.q;
+    if (query) {
+      res.json(
+        data.filter((d) => d.title.toLowerCase().includes(query.toLowerCase()))
+      );
+      return;
+    }
+    res.json(data);
+  } catch (e) {
+    res.send("sorry, an error has occured");
+  }
 });
 
 app.get("/noonscraper", async (req, res) => {
-  const data = await noonScraper();
-  res.json(data);
+  try {
+    const data = await noonScraper();
+    res.json(data);
+  } catch (e) {
+    res.send("sorry, an error has occured");
+  }
 });
 
 app.get("/all", async (req, res) => {});

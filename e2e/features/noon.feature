@@ -5,5 +5,5 @@ Feature: Noon service
 
     Scenario Outline: scrape iphones from noon.com
         Given A request
-        When I send a GET request to /noonscraper
+        When I send a GET request to "/noonscraper"
         Then I get response code 200 and valid array of items

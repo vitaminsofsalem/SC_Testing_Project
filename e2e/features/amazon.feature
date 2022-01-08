@@ -5,5 +5,5 @@ Feature: Amazon service
 
     Scenario Outline: scrape iphones from amazon.com
         Given A request
-        When I send a GET request to /amazonscraper
+        When I send a GET request to "/amazonscraper"
         Then I get response code 200 and valid array of items
