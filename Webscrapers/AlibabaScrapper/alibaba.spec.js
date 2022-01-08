@@ -23,6 +23,6 @@ describe("Check that scraping of the html document is done correctly", () => {
   test("parses html document and returns an empty array if no elements are found", async () => {
     mockAxios.get.mockImplementation(() => mockApiResEmpty);
     const data = await alibabaScraper();
-    expect(data).toEqual({ resultSet: [] });
+    expect(data).toEqual([]);
   });
 });

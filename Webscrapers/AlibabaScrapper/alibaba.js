@@ -1,15 +1,14 @@
 const cheerio = require("cheerio");
-const axios = require("axios");
-const ScraperResults = require("../ScraperResults");
 const axiosRequests = require("./axiosRequests");
 
-/**
- * Scrapes Alibaba Websites then returns the scraping results
- * @returns {ScraperResults} scraped data
+/*
+ * Scrape iphone data from Noon with a depth of 4 pages for scraping.
+ * function doesn't take any params
+ * @return  title, price, link of listed iphones
  */
 const alibabaScrapper = async () => {
   // arrays for saving requests & data
-  const dataAggregate = new ScraperResults();
+  const dataAggregate = [];
   const httpRequests = axiosRequests();
 
   // allows us to parallel compute the requests ( 4s * 4 req's = 16s VS 4s total time)
@@ -28,7 +27,7 @@ const alibabaScrapper = async () => {
       const link = $(el).find("a").attr("href");
 
       // push object to dataAggregate
-      dataAggregate.push(title, price, link);
+      dataAggregate.push({ title, price, link });
     });
   });
 
