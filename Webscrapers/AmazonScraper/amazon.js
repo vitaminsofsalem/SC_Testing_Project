@@ -1,23 +1,21 @@
 const cheerio = require("cheerio");
-const axios = require("axios");
+const { axiosRequests } = require("./axiosRequests");
 
+/*
+ * Scrape iphone data from Amazon with a depth of 4 pages for scraping.
+ * function doesn't take any params
+ * @return  title, price, link of listed iphones
+ */
 const amazonScraper = async () => {
-  // arrays for saving requests & data
+  // Arrays for saving requests & data
+  const httpRequests = axiosRequests();
   const dataAggregate = [];
-  const httpRequests = [];
 
-  for (let i = 1; i <= 4; i++) {
-    httpRequests.push(
-      axios(
-        `https://www.amazon.com/s?k=iphone&page=${i}&qid=1641303333&sprefix=iphone%2Caps%2C262&ref=sr_pg_${i}`
-      ).catch((err) => console.error(err))
-    );
-  }
-  // allows us to parallel compute the requests ( 4s * 4 req's = 16s VS 4s total time)
+  // Allows us to resolve all promises and run them in the order they were received in ( 1 -> 4 ) and in parallel.
   const results = await Promise.all(httpRequests);
 
-  // give empty array to avoid error with forEach loop
-  (results || []).forEach((httpResponse) => {
+  // Loop over request array getting the html document stored in .data and loading it with cheerio to being scraping webpages.
+  results.forEach((httpResponse) => {
     const html = httpResponse.data;
     const $ = cheerio.load(html);
 
@@ -45,7 +43,7 @@ const amazonScraper = async () => {
             .find(".a-link-normal")
             .attr("href");
 
-        // push object to dataAggregate array
+        // Push scraped data to dataAggregate array as an object
         dataAggregate.push({
           title,
           price,

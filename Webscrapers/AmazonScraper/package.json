@@ -1,0 +1,34 @@
+{
+  "name": "sc_testing_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "test": "jest",
+    "test:e2e": "cucumber-js -f json:e2e/report/cucumber_report.json e2e/features/ -r e2e/steps/ --parallel 3 && node ./e2e/report/reporter.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vitaminsofsalem/SC_Testing_Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vitaminsofsalem/SC_Testing_Project/issues"
+  },
+  "homepage": "https://github.com/vitaminsofsalem/SC_Testing_Project#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "bluebird": "^3.7.2",
+    "cheerio": "^1.0.0-rc.10",
+    "express": "^4.17.2",
+    "mongodb": "^4.2.2",
+    "nodemon": "^2.0.15"
+  },
+  "devDependencies": {
+    "cucumber": "^7.0.0-rc.0",
+    "cucumber-html-reporter": "^5.5.0",
+    "jest": "^27.4.7"
+  }
+}
