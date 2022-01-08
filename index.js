@@ -12,7 +12,7 @@ app.get("/amazonscraper", async (req, res) => {
     const data = await amazonScraper();
     res.json(data);
   } catch (e) {
-    res.send("sorry, an error has occured");
+    res.status(500).send("sorry, an error has occured");
   }
 });
 
@@ -28,7 +28,7 @@ app.get("/alibabascraper", async (req, res) => {
     }
     res.json(data);
   } catch (e) {
-    res.send("sorry, an error has occured");
+    res.status(500).send("sorry, an error has occured");
   }
 });
 
@@ -37,7 +37,7 @@ app.get("/noonscraper", async (req, res) => {
     const data = await noonScraper();
     res.json(data);
   } catch (e) {
-    res.send("sorry, an error has occured");
+    res.status(500).send("sorry, an error has occured");
   }
 });
 

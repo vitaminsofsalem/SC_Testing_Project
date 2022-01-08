@@ -10,7 +10,14 @@ Feature: Alibaba service
 
     Scenario Outline: search for results in alibaba.com
         Given A request 
-        When I send a GET request to "/alibabascraper" with search query "iphone"
+        When I send a GET request to "/alibabascraper" with search query <query>
         Then I get response code 200 and valid array of items
         And I get results match with the query
+    Examples:
+        |query      |
+        |"iphones"  |
+        |"iphone"   |
+        |"i"        | 
+        |"sale"     |
+        |"wholesale"|
 
