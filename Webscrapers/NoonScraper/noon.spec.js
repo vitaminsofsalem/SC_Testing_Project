@@ -8,9 +8,9 @@ const returnArrayMock = require("./__mocks__/noonReturn.api.stub");
 
 // 2 tests
 // One for parsing html correctly and returning the full list
-// One for parsing html with no elemtns, and returning emtpy list
+// One for parsing html with no elements, and returning empty list
 
-//Axios mocked once, same response for all 4 times requeust is called
+//Axios mocked once, same response for all 4 times request is called
 //Success mock contains each item 4 times
 
 describe("Check that scraping of the html document is done correctly", () => {

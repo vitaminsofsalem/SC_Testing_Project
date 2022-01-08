@@ -29,16 +29,23 @@ app.listen(PORT, () => console.log(`Server Started on PORT ${PORT}`));
 module.exports = { app };
 
 //////////////////////////////////////////
-// Code to add to DB
+// Code to persist in DB ( copy paste into app.get('/all) )
 //////////////////////////////////////////
-//  if (data && data.length) {
-//    const db = await mongoClient("iphones");
-//    if (!db) {
-//      return res
-//        .status(500)
-//        .json({ message: "Unable to establish database connection" });
-//    }
-//    await db.insertMany(data).catch((err) => {
-//      console.error(err);
-//    });
-//  }
+// const amazonData = await amazonScraper();
+// const noonData = await noonScraper();
+// const alibabaData = await alibabaScraper();
+
+// const dataAggregate = amazonData.concat(noonData, alibabaData);
+
+// if (dataAggregate && dataAggregate.length) {
+//   const db = await mongoClient("iphones");
+//   if (!db) {
+//     return res
+//       .status(500)
+//       .json({ message: "Unable to establish database connection" });
+//   }
+//   await db.insertMany(dataAggregate).catch((err) => {
+//     console.error(err);
+//   });
+// }
+// res.json(dataAggregate);
