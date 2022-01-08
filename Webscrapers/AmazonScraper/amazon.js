@@ -1,5 +1,5 @@
 const cheerio = require("cheerio");
-const { axiosRequests } = require("./axiosRequests");
+const axiosRequests = require("./axiosRequests");
 
 /*
  * Scrape iphone data from Amazon with a depth of 4 pages for scraping.

@@ -1,6 +1,7 @@
 const cheerio = require("cheerio");
 const axios = require("axios");
 const ScraperResults = require("../ScraperResults");
+const axiosRequests = require("./axiosRequests");
 
 /**
  * Scrapes Alibaba Websites then returns the scraping results
@@ -9,20 +10,13 @@ const ScraperResults = require("../ScraperResults");
 const alibabaScrapper = async () => {
   // arrays for saving requests & data
   const dataAggregate = new ScraperResults();
-  const httpRequests = [];
+  const httpRequests = axiosRequests();
 
-  for (let i = 1; i <= 4; i++) {
-    httpRequests.push(
-      axios(
-        `https://www.alibaba.com/trade/search?IndexArea=product_en&SearchText=iphone&page=${i}&f0=y`
-      ).catch((err) => console.error(err))
-    );
-  }
   // allows us to parallel compute the requests ( 4s * 4 req's = 16s VS 4s total time)
   const results = await Promise.all(httpRequests);
 
   // give empty array to avoid error with forEach loop
-  (results || []).forEach((httpResponse) => {
+  results.forEach((httpResponse) => {
     const html = httpResponse.data;
     const $ = cheerio.load(html);
 
