@@ -37,7 +37,6 @@ const noonScraper = async () => {
       });
     });
   });
-  console.log(dataAggregate.length);
   return dataAggregate;
 };
 

@@ -3,25 +3,26 @@ jest.mock("axios");
 const mockAxios = require("axios");
 const noonScraper = require("./noon");
 const mockApiRes = require("./__mocks__/noonSuccess.api.stub");
+const mockApiResEmpty = require("./__mocks__/noonEmpty.api.stub");
 const returnArrayMock = require("./__mocks__/noonReturn.api.stub");
 
-// we will write 4 units tests.
-// we'll mock axios and check in case of successful api return ( tests should pass )
-// we'll test the return of amazonScraper to see if it returns an array of 64 objects
-// we'll test the return of amazonScraper to see if it returns an the correct object format of test; price; link
+// 2 tests
+// One for parsing html correctly and returning the full list
+// One for parsing html with no elemtns, and returning emtpy list
 
-mockAxios.get.mockImplementation(() => mockApiRes);
+//Axios mocked once, same response for all 4 times requeust is called
+//Success mock contains each item 4 times
 
-describe("Check tests using a successful api stub", () => {
-  test("check that return array has 64 elements coming from the 4 scraped pages ( 16 elements each )", async () => {
+describe("Check that scraping of the html document is done correctly", () => {
+  test("parses html document and returns all products in an array", async () => {
+    mockAxios.get.mockImplementation(() => mockApiRes);
     const data = await noonScraper();
-    expect(data.length).toBe(returnArrayMock.length);
+    expect(data).toEqual(returnArrayMock);
   });
 
-  test("check that return array contains correct object structure against regular expression", async () => {
+  test("parses html document and returns an empty array if no elements are found", async () => {
+    mockAxios.get.mockImplementation(() => mockApiResEmpty);
     const data = await noonScraper();
-    for (let i = 0; i < data.length; i++) {
-      expect(JSON.stringify(data[i])).toMatch(/title|price|link/gi);
-    }
+    expect(data).toEqual([]);
   });
 });
