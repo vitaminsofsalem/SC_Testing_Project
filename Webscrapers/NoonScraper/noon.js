@@ -1,24 +1,21 @@
 const cheerio = require("cheerio");
 const axios = require("axios");
+const axiosRequests = require("./axiosRequests");
 
+/*
+ * Scrape iphone data from Noon with a depth of 4 pages for scraping.
+ * function doesn't take any params
+ * @return  title, price, link of listed iphones
+ */
 const noonScraper = async () => {
-  // arrays for saving requests & data
+  // Arrays for saving requests & data
   const dataAggregate = [];
-  const httpRequests = [];
+  const httpRequests = axiosRequests();
 
-  for (let i = 1; i <= 4; i++) {
-    //loop around first 4 pages of search result
-    httpRequests.push(
-      axios(`https://www.noon.com/egypt-en/search/?page=${i}&q=iphone`).catch(
-        (err) => console.error(err)
-      )
-    );
-  }
+  // Allows us to resolve all promises and run them in the order they were received in ( 1 -> 4 ) and in parallel.
+  const results = await Promise.all(httpRequests);
 
-  const results = await Promise.all(httpRequests); //parallel compute the requests
-
-  (results || []).forEach((httpResponse) => {
-    // give empty array to avoid error with forEach loop
+  results.forEach((httpResponse) => {
     const html = httpResponse.data;
     const $ = cheerio.load(html);
 
@@ -40,6 +37,7 @@ const noonScraper = async () => {
       });
     });
   });
+  console.log(dataAggregate.length);
   return dataAggregate;
 };
 
