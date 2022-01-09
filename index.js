@@ -41,30 +41,34 @@ app.get("/noonscraper", async (req, res) => {
   }
 });
 
-app.get("/all", async (req, res) => {});
+app.get("/all", async (req, res) => {
+  const amazonData = await amazonScraper();
+  const noonData = await noonScraper();
+  const alibabaData = await alibabaScraper();
+  const dataAggregate = amazonData.concat(noonData, alibabaData);
+  if (dataAggregate && dataAggregate.length) {
+    const db = await mongoClient("iphones");
+    if (!db) {
+      return res
+        .status(500)
+        .json({ message: "Unable to establish database connection" });
+    }
+    for (const item of dataAggregate) {
+      const existing = await db.findOne({ link: item.link });
+      //If an item exists with the same URL, then just update the name and price
+      if (existing) {
+        db.updateOne(
+          { link: item.link },
+          { $set: { title: item.title, price: item.price } }
+        );
+      } else {
+        db.insertOne(item);
+      }
+    }
+  }
+  res.json(dataAggregate);
+});
 
 app.listen(PORT, () => console.log(`Server Started on PORT ${PORT}`));
 
 module.exports = { app };
-
-//////////////////////////////////////////
-// Code to persist in DB ( copy paste into app.get('/all) )
-//////////////////////////////////////////
-// const amazonData = await amazonScraper();
-// const noonData = await noonScraper();
-// const alibabaData = await alibabaScraper();
-
-// const dataAggregate = amazonData.concat(noonData, alibabaData);
-
-// if (dataAggregate && dataAggregate.length) {
-//   const db = await mongoClient("iphones");
-//   if (!db) {
-//     return res
-//       .status(500)
-//       .json({ message: "Unable to establish database connection" });
-//   }
-//   await db.insertMany(dataAggregate).catch((err) => {
-//     console.error(err);
-//   });
-// }
-// res.json(dataAggregate);
