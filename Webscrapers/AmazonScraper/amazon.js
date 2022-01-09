@@ -1,5 +1,5 @@
 const cheerio = require("cheerio");
-const axiosRequests = require("./axiosRequests");
+const requests = require("./requests");
 
 /**
  * Scrape iphone data from Amazon with a depth of 4 pages for scraping.
@@ -8,7 +8,7 @@ const axiosRequests = require("./axiosRequests");
  */
 const amazonScraper = async () => {
   // Arrays for saving requests & data
-  const httpRequests = axiosRequests();
+  const httpRequests = requests();
   const dataAggregate = [];
 
   // Allows us to resolve all promises and run them in the order they were received in ( 1 -> 4 ) and in parallel.

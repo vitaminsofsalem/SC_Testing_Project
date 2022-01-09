@@ -1,5 +1,5 @@
 const cheerio = require("cheerio");
-const axiosRequests = require("./axiosRequests");
+const requests = require("./requests");
 
 /**
  * Scrape iphone data from Alibaba with a depth of 4 pages for scraping.
@@ -9,7 +9,7 @@ const axiosRequests = require("./axiosRequests");
 const alibabaScrapper = async () => {
   // arrays for saving requests & data
   const dataAggregate = [];
-  const httpRequests = axiosRequests();
+  const httpRequests = requests();
 
   // allows us to parallel compute the requests ( 4s * 4 req's = 16s VS 4s total time)
   const results = await Promise.all(httpRequests);

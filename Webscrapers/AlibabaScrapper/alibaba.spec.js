@@ -1,6 +1,6 @@
-jest.mock("axios");
+jest.mock("../../CachedRequests/getRequestCached");
+const mockGetRequestCached = require("../../CachedRequests/getRequestCached");
 
-const mockAxios = require("axios");
 const alibabaScraper = require("./alibaba");
 const mockApiRes = require("./__mocks__/alibabaSuccess.api.stub");
 const mockApiResEmpty = require("./__mocks__/alibabaEmpty.api.stub");
@@ -15,13 +15,13 @@ const returnArrayMock = require("./__mocks__/alibabaReturn.api.stub");
 
 describe("Check that scraping of the html document is done correctly", () => {
   test("parses html document and returns all products in an array", async () => {
-    mockAxios.get.mockImplementation(() => mockApiRes);
+    mockGetRequestCached.mockImplementation(() => mockApiRes);
     const data = await alibabaScraper();
     expect(data).toEqual(returnArrayMock);
   });
 
   test("parses html document and returns an empty array if no elements are found", async () => {
-    mockAxios.get.mockImplementation(() => mockApiResEmpty);
+    mockGetRequestCached.mockImplementation(() => mockApiResEmpty);
     const data = await alibabaScraper();
     expect(data).toEqual([]);
   });
