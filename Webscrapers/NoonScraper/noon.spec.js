@@ -1,4 +1,5 @@
 jest.mock("../../CachedRequests/getRequestCached");
+
 const mockGetRequestCached = require("../../CachedRequests/getRequestCached");
 const noonScraper = require("./noon");
 const mockApiRes = require("./__mocks__/noonSuccess.api.stub");
