@@ -27,7 +27,7 @@ const AmazonPage = () => {
           return <Card key={value.url} {...value} />;
         })
       ) : (
-        <p>Scrapping amazon.com</p>
+        <p data-testid="loading-text">Scrapping amazon.com</p>
       )}
     </div>
   );

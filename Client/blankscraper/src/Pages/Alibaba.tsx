@@ -27,7 +27,7 @@ const AlibabaPage = () => {
           return <Card key={value.url + index} {...value} />;
         })
       ) : (
-        <p>Scrapping alibaba.com</p>
+        <p data-testid="loading-text">Scrapping alibaba.com</p>
       )}
     </div>
   );

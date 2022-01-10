@@ -27,7 +27,9 @@ const All = () => {
           return <Card key={value.url} {...value} />;
         })
       ) : (
-        <p>Scrapping websites and storing in DB. This may take a while</p>
+        <p data-testid="loading-text">
+          Scrapping websites and storing in DB. This may take a while
+        </p>
       )}
     </div>
   );

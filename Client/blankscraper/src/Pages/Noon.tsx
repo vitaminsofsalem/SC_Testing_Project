@@ -12,7 +12,7 @@ const NoonPage = () => {
     axios.get("http://localhost:3000/noonscraper").then((value) => {
       const items = (value.data as any[]).map((value): Item => {
         return {
-          price: value.price || "Multiple prices",
+          price: value.price,
           title: value.title,
           url: value.link,
           image: ImageGetter.getImage(value.title),
@@ -28,7 +28,7 @@ const NoonPage = () => {
           return <Card key={value.url} {...value} />;
         })
       ) : (
-        <p>Scrapping noon.com</p>
+        <p data-testid="loading-text">Scrapping noon.com</p>
       )}
     </div>
   );
