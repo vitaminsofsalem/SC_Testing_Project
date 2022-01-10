@@ -48,10 +48,12 @@ const Navbar: React.FC = () => {
         className="logo"
         src={require("../Resources/Logos/BlankScraperWhite.png")}
         alt="Company Logo"
+        data-testid="logo"
       />
       <div className="btn-group">
         {pages.map((page) => (
           <button
+            data-testid="menu-button"
             className={isAtPage(page) ? "btn-focus" : "btn-normal"}
             key={page}
             type="button"

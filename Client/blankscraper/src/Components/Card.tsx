@@ -12,14 +12,17 @@ const Card: React.FC<Item> = (props) => {
         window.open(props.url, "_blank");
       }}
       className="cardItem"
+      data-testid="card"
     >
       {props.image ? (
-        <img className="cardImage" src={props.image} />
+        <img data-testid="image" className="cardImage" src={props.image} />
       ) : (
-        <p>No image found</p>
+        <p data-testid="no-image-p">No image found</p>
       )}
-      <p className="cardTitle">{props.title}</p>
-      <p className="cardPrice">
+      <p data-testid="title" className="cardTitle">
+        {props.title}
+      </p>
+      <p data-testid="price" className="cardPrice">
         {props.price.includes("$") || props.price === "Multiple prices"
           ? props.price
           : `${props.price} EGP`}
