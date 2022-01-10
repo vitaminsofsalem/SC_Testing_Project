@@ -9,7 +9,8 @@ const Card: React.FC<Item> = (props) => {
         const url = props.url.includes("http")
           ? props.url
           : `https:${props.url}`;
-        window.open(props.url, "_blank");
+        console.log(url);
+        window.open(url, "_blank");
       }}
       className="cardItem"
       data-testid="card"

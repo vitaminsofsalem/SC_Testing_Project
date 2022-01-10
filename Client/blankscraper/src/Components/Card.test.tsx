@@ -78,12 +78,30 @@ it("should render multiple price correctly", () => {
   expect(price.textContent).toEqual("Multiple prices");
 });
 
-it("should open URL in seperate tab when clicked", () => {
+it("should open URL in seperate tab when clicked (proper full url)", () => {
   const container = render(
     <Card
       price="Multiple prices"
       title="Title"
       url="https://google.com"
+      image={require("../Resources/iphoneImages/i11/Black11Alpha.png")}
+    />
+  ).container;
+
+  //Mocks window.open
+  const open = jest.fn();
+  global.open = open;
+
+  getByTestId(container, "card").click();
+  expect(open).lastCalledWith("https://google.com", "_blank");
+});
+
+it("should open URL in seperate tab when clicked (url missing https:)", () => {
+  const container = render(
+    <Card
+      price="Multiple prices"
+      title="Title"
+      url="//google.com"
       image={require("../Resources/iphoneImages/i11/Black11Alpha.png")}
     />
   ).container;
