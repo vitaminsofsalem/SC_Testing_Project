@@ -24,6 +24,7 @@
   width: 163px;
   height: 49px;
   background: transparent;
+  cursor: pointer;
 }
 
 .btn-group button:hover {
@@ -67,4 +68,8 @@
 
   background: linear-gradient(270deg, #ff032d 0%, #840e1f 100%);
   border-radius: 5px;
+  cursor: pointer;
+}
+.logo {
+  object-fit: contain;
 }

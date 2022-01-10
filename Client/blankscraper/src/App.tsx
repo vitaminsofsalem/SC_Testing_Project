@@ -15,6 +15,9 @@ function App() {
     <>
       <Router>
         <Navbar />
+        <p style={{ fontSize: 12, marginLeft: 50 }}>
+          *Images may be inaccurate
+        </p>
         <Switch>
           <Route path="/" element={<All />} />
           <Route path="/amazonscraper" element={<AmazonPage />} />

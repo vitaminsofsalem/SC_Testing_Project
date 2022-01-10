@@ -2,7 +2,7 @@ import * as React from "react";
 import "../Styles/Navbar.css";
 import { useNavigate, useLocation } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
   const pages = ["All", "Amazon", "Noon", "Alibaba"];
 
   const navigate = useNavigate();
@@ -45,6 +45,7 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <img
+        className="logo"
         src={require("../Resources/Logos/BlankScraperWhite.png")}
         alt="Company Logo"
       />

@@ -1,11 +1,14 @@
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
 const express = require("express");
 const app = express();
+const cors = require("cors");
 const PORT = 3000;
 const { mongoClient } = require("./Database/db.js");
 const amazonScraper = require("./Webscrapers/AmazonScraper/amazon");
 const noonScraper = require("./Webscrapers/NoonScraper/noon");
 const alibabaScraper = require("./Webscrapers/AlibabaScrapper/alibaba");
+
+app.use(cors());
 
 app.get("/amazonscraper", async (req, res) => {
   try {
