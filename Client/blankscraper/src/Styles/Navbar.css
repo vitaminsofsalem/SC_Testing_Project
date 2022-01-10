@@ -15,7 +15,7 @@
   justify-content: space-evenly;
 }
 
-.btn-group button {
+.btn-normal {
   font-size: 20px;
   font-style: normal;
   font-weight: bold;
@@ -47,7 +47,7 @@
   transition: 0.3s;
   transition-property: color, box-shadow;
 }
-.btn-group button:focus {
+.btn-focus {
   /* position: absolute; */
   width: 163px;
   height: 49px;

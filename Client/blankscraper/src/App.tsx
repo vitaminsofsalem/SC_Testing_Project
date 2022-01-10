@@ -1,5 +1,3 @@
-import React from "react";
-import logo from "./logo.svg";
 import Navbar from "./Components/Navbar";
 import "./Styles/App.css";
 import {
@@ -18,7 +16,7 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
-          <Route path="/all" element={<All />} />
+          <Route path="/" element={<All />} />
           <Route path="/amazonscraper" element={<AmazonPage />} />
           <Route path="/noonscraper" element={<NoonPage />} />
           <Route path="/alibabascraper" element={<AlibabaPage />} />
