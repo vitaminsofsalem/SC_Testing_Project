@@ -32,5 +32,11 @@
     "cucumber": "^7.0.0-rc.0",
     "cucumber-html-reporter": "^5.5.0",
     "jest": "^27.4.7"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/Client/"
+    ]
   }
 }

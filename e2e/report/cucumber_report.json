@@ -15,11 +15,11 @@
             "line": 7,
             "name": "A request",
             "match": {
-              "location": "e2e/steps/steps.js:5"
+              "location": "e2e\\steps\\steps.js:5"
             },
             "result": {
               "status": "passed",
-              "duration": 20000000
+              "duration": 5000000
             }
           },
           {
@@ -28,11 +28,11 @@
             "line": 8,
             "name": "I send a GET request to \"/alibabascraper\"",
             "match": {
-              "location": "e2e/steps/steps.js:9"
+              "location": "e2e\\steps\\steps.js:9"
             },
             "result": {
               "status": "passed",
-              "duration": 5258000000
+              "duration": 430000000
             }
           },
           {
@@ -41,11 +41,11 @@
             "line": 9,
             "name": "I get response code 200 and valid array of items",
             "match": {
-              "location": "e2e/steps/steps.js:15"
+              "location": "e2e\\steps\\steps.js:15"
             },
             "result": {
               "status": "passed",
-              "duration": 6000000
+              "duration": 2000000
             }
           }
         ],
@@ -65,11 +65,11 @@
             "line": 12,
             "name": "A request",
             "match": {
-              "location": "e2e/steps/steps.js:5"
+              "location": "e2e\\steps\\steps.js:5"
             },
             "result": {
               "status": "passed",
-              "duration": 16000000
+              "duration": 6000000
             }
           },
           {
@@ -78,11 +78,11 @@
             "line": 13,
             "name": "I send a GET request to \"/alibabascraper\" with search query \"iphones\"",
             "match": {
-              "location": "e2e/steps/steps.js:28"
+              "location": "e2e\\steps\\steps.js:28"
             },
             "result": {
               "status": "passed",
-              "duration": 4047000000
+              "duration": 754000000
             }
           },
           {
@@ -91,259 +91,7 @@
             "line": 14,
             "name": "I get response code 200 and valid array of items",
             "match": {
-              "location": "e2e/steps/steps.js:15"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 8000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 15,
-            "name": "I get results match with the query",
-            "match": {
-              "location": "e2e/steps/steps.js:37"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 11000000
-            }
-          }
-        ],
-        "tags": [],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "alibaba-service;search-for-results-in-alibaba.com",
-        "keyword": "Scenario Outline",
-        "line": 11,
-        "name": "search for results in alibaba.com",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 12,
-            "name": "A request",
-            "match": {
-              "location": "e2e/steps/steps.js:5"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 18000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 13,
-            "name": "I send a GET request to \"/alibabascraper\" with search query \"iphone\"",
-            "match": {
-              "location": "e2e/steps/steps.js:28"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 4541000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 14,
-            "name": "I get response code 200 and valid array of items",
-            "match": {
-              "location": "e2e/steps/steps.js:15"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 7000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 15,
-            "name": "I get results match with the query",
-            "match": {
-              "location": "e2e/steps/steps.js:37"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 8000000
-            }
-          }
-        ],
-        "tags": [],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "alibaba-service;search-for-results-in-alibaba.com",
-        "keyword": "Scenario Outline",
-        "line": 11,
-        "name": "search for results in alibaba.com",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 12,
-            "name": "A request",
-            "match": {
-              "location": "e2e/steps/steps.js:5"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 13,
-            "name": "I send a GET request to \"/alibabascraper\" with search query \"i\"",
-            "match": {
-              "location": "e2e/steps/steps.js:28"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 4434000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 14,
-            "name": "I get response code 200 and valid array of items",
-            "match": {
-              "location": "e2e/steps/steps.js:15"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 2000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 15,
-            "name": "I get results match with the query",
-            "match": {
-              "location": "e2e/steps/steps.js:37"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 2000000
-            }
-          }
-        ],
-        "tags": [],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "alibaba-service;search-for-results-in-alibaba.com",
-        "keyword": "Scenario Outline",
-        "line": 11,
-        "name": "search for results in alibaba.com",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 12,
-            "name": "A request",
-            "match": {
-              "location": "e2e/steps/steps.js:5"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 13,
-            "name": "I send a GET request to \"/alibabascraper\" with search query \"sale\"",
-            "match": {
-              "location": "e2e/steps/steps.js:28"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 5096000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 14,
-            "name": "I get response code 200 and valid array of items",
-            "match": {
-              "location": "e2e/steps/steps.js:15"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 4000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 15,
-            "name": "I get results match with the query",
-            "match": {
-              "location": "e2e/steps/steps.js:37"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1000000
-            }
-          }
-        ],
-        "tags": [],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "alibaba-service;search-for-results-in-alibaba.com",
-        "keyword": "Scenario Outline",
-        "line": 11,
-        "name": "search for results in alibaba.com",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 12,
-            "name": "A request",
-            "match": {
-              "location": "e2e/steps/steps.js:5"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 0
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 13,
-            "name": "I send a GET request to \"/alibabascraper\" with search query \"wholesale\"",
-            "match": {
-              "location": "e2e/steps/steps.js:28"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 5264000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 14,
-            "name": "I get response code 200 and valid array of items",
-            "match": {
-              "location": "e2e/steps/steps.js:15"
+              "location": "e2e\\steps\\steps.js:15"
             },
             "result": {
               "status": "passed",
@@ -356,11 +104,263 @@
             "line": 15,
             "name": "I get results match with the query",
             "match": {
-              "location": "e2e/steps/steps.js:37"
+              "location": "e2e\\steps\\steps.js:37"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "alibaba-service;search-for-results-in-alibaba.com",
+        "keyword": "Scenario Outline",
+        "line": 11,
+        "name": "search for results in alibaba.com",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "A request",
+            "match": {
+              "location": "e2e\\steps\\steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "I send a GET request to \"/alibabascraper\" with search query \"iphone\"",
+            "match": {
+              "location": "e2e\\steps\\steps.js:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1060000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "I get response code 200 and valid array of items",
+            "match": {
+              "location": "e2e\\steps\\steps.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I get results match with the query",
+            "match": {
+              "location": "e2e\\steps\\steps.js:37"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "alibaba-service;search-for-results-in-alibaba.com",
+        "keyword": "Scenario Outline",
+        "line": 11,
+        "name": "search for results in alibaba.com",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "A request",
+            "match": {
+              "location": "e2e\\steps\\steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "I send a GET request to \"/alibabascraper\" with search query \"i\"",
+            "match": {
+              "location": "e2e\\steps\\steps.js:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 984000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "I get response code 200 and valid array of items",
+            "match": {
+              "location": "e2e\\steps\\steps.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I get results match with the query",
+            "match": {
+              "location": "e2e\\steps\\steps.js:37"
             },
             "result": {
               "status": "passed",
               "duration": 2000000
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "alibaba-service;search-for-results-in-alibaba.com",
+        "keyword": "Scenario Outline",
+        "line": 11,
+        "name": "search for results in alibaba.com",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "A request",
+            "match": {
+              "location": "e2e\\steps\\steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "I send a GET request to \"/alibabascraper\" with search query \"sale\"",
+            "match": {
+              "location": "e2e\\steps\\steps.js:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 947000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "I get response code 200 and valid array of items",
+            "match": {
+              "location": "e2e\\steps\\steps.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I get results match with the query",
+            "match": {
+              "location": "e2e\\steps\\steps.js:37"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "alibaba-service;search-for-results-in-alibaba.com",
+        "keyword": "Scenario Outline",
+        "line": 11,
+        "name": "search for results in alibaba.com",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "A request",
+            "match": {
+              "location": "e2e\\steps\\steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "I send a GET request to \"/alibabascraper\" with search query \"wholesale\"",
+            "match": {
+              "location": "e2e\\steps\\steps.js:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 958000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "I get response code 200 and valid array of items",
+            "match": {
+              "location": "e2e\\steps\\steps.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I get results match with the query",
+            "match": {
+              "location": "e2e\\steps\\steps.js:37"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
             }
           }
         ],
@@ -373,7 +373,7 @@
     "keyword": "Feature",
     "name": "Alibaba service",
     "tags": [],
-    "uri": "e2e/features/alibaba.feature"
+    "uri": "e2e\\features\\alibaba.feature"
   },
   {
     "description": "    In order to provide proper representation of iPhone prices\n    As a developer\n    I want to make sure scraping of amazon.com is done properly",
@@ -391,7 +391,7 @@
             "line": 7,
             "name": "A request",
             "match": {
-              "location": "e2e/steps/steps.js:5"
+              "location": "e2e\\steps\\steps.js:5"
             },
             "result": {
               "status": "passed",
@@ -404,12 +404,11 @@
             "line": 8,
             "name": "I send a GET request to \"/amazonscraper\"",
             "match": {
-              "location": "e2e/steps/steps.js:9"
+              "location": "e2e\\steps\\steps.js:9"
             },
             "result": {
-              "status": "failed",
-              "duration": 348000000,
-              "error_message": "Error: Request failed with status code 500\n    at createError (/home/fakhry/Projects/SC_Testing_Project/node_modules/axios/lib/core/createError.js:16:15)\n    at settle (/home/fakhry/Projects/SC_Testing_Project/node_modules/axios/lib/core/settle.js:17:12)\n    at IncomingMessage.handleStreamEnd (/home/fakhry/Projects/SC_Testing_Project/node_modules/axios/lib/adapters/http.js:293:11)\n    at IncomingMessage.emit (node:events:402:35)\n    at endReadableNT (node:internal/streams/readable:1343:12)\n    at processTicksAndRejections (node:internal/process/task_queues:83:21)"
+              "status": "passed",
+              "duration": 1315000000
             }
           },
           {
@@ -418,11 +417,11 @@
             "line": 9,
             "name": "I get response code 200 and valid array of items",
             "match": {
-              "location": "e2e/steps/steps.js:15"
+              "location": "e2e\\steps\\steps.js:15"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1000000
             }
           }
         ],
@@ -435,7 +434,7 @@
     "keyword": "Feature",
     "name": "Amazon service",
     "tags": [],
-    "uri": "e2e/features/amazon.feature"
+    "uri": "e2e\\features\\amazon.feature"
   },
   {
     "description": "    In order to provide proper representation of iPhone prices\n    As a developer\n    I want to make sure scraping of noon.com is done properly",
@@ -453,11 +452,11 @@
             "line": 7,
             "name": "A request",
             "match": {
-              "location": "e2e/steps/steps.js:5"
+              "location": "e2e\\steps\\steps.js:5"
             },
             "result": {
               "status": "passed",
-              "duration": 2000000
+              "duration": 0
             }
           },
           {
@@ -466,11 +465,11 @@
             "line": 8,
             "name": "I send a GET request to \"/noonscraper\"",
             "match": {
-              "location": "e2e/steps/steps.js:9"
+              "location": "e2e\\steps\\steps.js:9"
             },
             "result": {
               "status": "passed",
-              "duration": 3458000000
+              "duration": 612000000
             }
           },
           {
@@ -479,11 +478,11 @@
             "line": 9,
             "name": "I get response code 200 and valid array of items",
             "match": {
-              "location": "e2e/steps/steps.js:15"
+              "location": "e2e\\steps\\steps.js:15"
             },
             "result": {
               "status": "passed",
-              "duration": 1000000
+              "duration": 0
             }
           }
         ],
@@ -496,6 +495,6 @@
     "keyword": "Feature",
     "name": "Noon service",
     "tags": [],
-    "uri": "e2e/features/noon.feature"
+    "uri": "e2e\\features\\noon.feature"
   }
 ]
